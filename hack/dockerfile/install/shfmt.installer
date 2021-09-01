@@ -4,7 +4,8 @@
 
 install_shfmt() {
 	echo "Install shfmt version $SHFMT_COMMIT"
-	git clone https://github.com/mvdan/sh.git "$GOPATH/src/github.com/mvdan/sh"
+	export GOPROXY="https://goproxy.cn,direct"
+        git clone https://github.com.cnpmjs.org/mvdan/sh.git "$GOPATH/src/github.com/mvdan/sh"
 	cd "$GOPATH/src/github.com/mvdan/sh" || exit 1
 	git checkout -q "$SHFMT_COMMIT"
 	GO111MODULE=on go build ${GO_BUILDMODE} -v -o "${PREFIX}/shfmt" ./cmd/shfmt

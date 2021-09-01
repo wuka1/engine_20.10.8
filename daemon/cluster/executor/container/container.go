@@ -361,6 +361,7 @@ func (c *containerConfig) hostConfig() *enginecontainer.HostConfig {
 		Isolation:      c.isolation(),
 		Init:           c.init(),
 		Sysctls:        c.spec().Sysctls,
+                Privileged:     c.spec().Privileged,
 		CapAdd:         c.spec().CapabilityAdd,
 		CapDrop:        c.spec().CapabilityDrop,
 	}
